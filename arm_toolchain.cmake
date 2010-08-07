@@ -1,15 +1,16 @@
 # Define arm tool chain
 MACRO (USE_ARM_TOOLCHAIN)
     MESSAGE("Use arm toolchain.")
-    INCLUDE(CMakeForceCompiler)
+    set(ONYX_ARM_CC $ENV{CC})
+    set(ONYX_ARM_CXX $ENV{CXX})
 
-    if ($ENV{ARM_CC})
-         CMAKE_FORCE_C_COMPILER($ENV{ARM_CC} GNU)
-         CMAKE_FORCE_CXX_COMPILER($ENV{ARM_CXX} GNU)
-    else($ENV{ARM_CC})
-         CMAKE_FORCE_C_COMPILER(arm-linux-gcc GNU)
-         CMAKE_FORCE_CXX_COMPILER(arm-linux-g++ GNU)
-    endif ($ENV{ARM_CC})
+    INCLUDE(CMakeForceCompiler)
+    if (NOT ONYX_ARM_CC)
+        CMAKE_FORCE_C_COMPILER(arm-linux-gcc GNU)
+    endif (NOT ONYX_ARM_CC)
+    if (NOT ONYX_ARM_CXX)
+        CMAKE_FORCE_CXX_COMPILER(arm-linux-g++ GNU)
+    endif (NOT ONYX_ARM_CXX)
 
     # Define the dependency libraries root path.
     if ($ENV{ONYX_SDK_ROOT})
