@@ -37,7 +37,7 @@ MACRO (USE_ARM_TOOLCHAIN)
 
     SET(PDF_LIB libfpdfemb_arm.a)
     SET(TTS_LIB AiSound4)
-    SET(ADD_LIB z m rt pthread dl)
+    SET(ADD_LIB m rt pthread dl)
 
     ADD_DEFINITIONS(-DBUILD_FOR_ARM)
     ADD_DEFINITIONS(-DENABLE_EINK_SCREEN)
