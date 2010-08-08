@@ -5,12 +5,12 @@ MACRO (USE_ARM_TOOLCHAIN)
     set(ONYX_ARM_CXX $ENV{CXX})
 
     INCLUDE(CMakeForceCompiler)
-    if (NOT ONYX_ARM_CC)
+    if ((NOT ONYX_ARM_CC) OR (ONYX_ARM_CC EQUAL ""))
         CMAKE_FORCE_C_COMPILER(arm-linux-gcc GNU)
-    endif (NOT ONYX_ARM_CC)
-    if (NOT ONYX_ARM_CXX)
+    endif ((NOT ONYX_ARM_CC) OR (ONYX_ARM_CC EQUAL ""))
+    if ((NOT ONYX_ARM_CXX) OR (ONYX_ARM_CXX EQUAL ""))
         CMAKE_FORCE_CXX_COMPILER(arm-linux-g++ GNU)
-    endif (NOT ONYX_ARM_CXX)
+    endif ((NOT ONYX_ARM_CXX) OR (ONYX_ARM_CXX EQUAL ""))
 
     # Define the dependency libraries root path.
     if ($ENV{ONYX_SDK_ROOT})
