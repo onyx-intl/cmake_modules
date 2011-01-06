@@ -26,6 +26,9 @@ MACRO (USE_ARM_TOOLCHAIN)
 
     # Set up development build mode
     SET(CMAKE_CXX_FLAGS "-s ")
+    SET(CMAKE_BUILD_TYPE Release CACHE STRING
+        "Choose the type of build, options are: None Debug Release RelWithDebInfo MinSizeRel Devel."
+        FORCE)
 
     SET(PDF_LIB libfpdfemb_arm.a)
     SET(TTS_LIB AiSound4)
