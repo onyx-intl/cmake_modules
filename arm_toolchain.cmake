@@ -26,6 +26,11 @@ MACRO (USE_ARM_TOOLCHAIN)
 
     # Set up development build mode
     SET(CMAKE_CXX_FLAGS "-s ")
+
+    if (USE_CORTEX_A8)
+        set(CMAKE_CXX_FLAGS "-s -fPIC -mcpu=cortex-a8 -mfpu=neon -mfloat-abi=softfp ")
+    endif (USE_CORTEX_A8)
+
     SET(CMAKE_BUILD_TYPE Release CACHE STRING
         "Choose the type of build, options are: None Debug Release RelWithDebInfo MinSizeRel Devel."
         FORCE)
