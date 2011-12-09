@@ -11,6 +11,7 @@ MACRO (USE_MIPS_TOOLCHAIN)
         message("Use default path: /opt/onyx/mips/")
         SET(CMAKE_FIND_ROOT_PATH "/opt/onyx/mips/")
         link_directories("/opt/onyx/mips/lib")
+        link_directories("/opt/onyx/mips/lib/adobe")
     endif (ONYX_SDK_ROOT)
     SET(CMAKE_FIND_ROOT_PATH_MODE_PROGRAM NEVER)
 
