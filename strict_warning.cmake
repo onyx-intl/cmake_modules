@@ -1,6 +1,6 @@
 macro(STRICT_WARNING TARGET)
   if(NOT WIN32)
-    if(NOT BUILD_FOR_ARM)
+    if(NOT BUILD_FOR_ARM AND NOT BUILD_FOR_MIPS)
       if(DEBUG)
         set_target_properties(${TARGET}
           PROPERTIES
@@ -12,6 +12,6 @@ macro(STRICT_WARNING TARGET)
           COMPILE_FLAGS "-Wall -Werror"
           CMAKE_EXE_LINKER_FLAGS "--no-undefined --fatal-warnings")
       endif(DEBUG)
-    endif(NOT BUILD_FOR_ARM)
+    endif(NOT BUILD_FOR_ARM AND NOT BUILD_FOR_MIPS)
   endif(NOT WIN32)
 endmacro(STRICT_WARNING)
